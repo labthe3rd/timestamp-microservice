@@ -2,6 +2,7 @@
  * Programmer:    labthe3rd
  * date:          10/3/23
  * desc:          Takes a date in the api route and returns it as a json. This project was made for my freecodecamp certificate and uses their template with my own code
+ * Note:          Add a build oflder for render.com
  */
 
 // index.js
