@@ -1,10 +1,12 @@
+/*
+ * Programmer:    labthe3rd
+ * date:          10/3/23
+ * desc:          Takes a date in the api route and returns it as a json. This project was made for my freecodecamp certificate and uses their template with my own code
+ */
+
 // index.js
 // where your node app starts
-const { local_port, debug } = require("./config/env");
 var server_port = process.env.PORT;
-if (debug) {
-  server_port = local_port;
-}
 // init project
 var express = require("express");
 var app = express();
@@ -22,7 +24,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-// return date
+// Return the date in the response
 app.get("/api/:date", function (req, res) {
   let dateStr = req.params.date;
   // Check if dateStr is a timestamp number (like 1628862549000) using regex
