@@ -26,14 +26,20 @@ app.get("/", function (req, res) {
 });
 
 // Return the date in the response
-app.get("/api/:date", function (req, res) {
+app.get("/api/:date?", function (req, res) {
   let dateStr = req.params.date;
+
   // Check if dateStr is a timestamp number (like 1628862549000) using regex
   if (/^\d+$/.test(dateStr)) {
     dateStr = parseInt(dateStr);
   }
   //create dateOBJ
-  const dateObj = new Date(dateStr);
+  let dateObj;
+  if (dateStr) {
+    dateObj = new Date(dateStr);
+  } else {
+    dateObj = new Date();
+  }
 
   // If the date is invalid
   if (isNaN(dateObj.getTime())) {
